@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>William Jan - Digital Marketing Specialist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #1a2332;
+            --accent-teal: #4fb3bf;
+            --light-bg: #fafbfc;
+            --card-bg: #ffffff;
+            --text-primary: #1a2332;
+            --text-secondary: #5a6c7d;
+            --border-color: #e8ecef;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--light-bg);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f9fa 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(79, 179, 191, 0.08) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-30px, -30px) rotate(5deg); }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-greeting {
+            font-size: 1rem;
+            color: var(--accent-teal);
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--card-bg);
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 50px;
+            border: 2px solid var(--border-color);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .contact-link:hover {
+            border-color: var(--accent-teal);
+            background: var(--accent-teal);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(79, 179, 191, 0.2);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 5rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .section-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: var(--primary-dark);
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-teal);
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--accent-teal);
+            transition: height 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(26, 35, 50, 0.08);
+            border-color: var(--accent-teal);
+        }
+
+        .card:hover::before {
+            height: 100%;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .card-company {
+            font-size: 1.1rem;
+            color: var(--accent-teal);
+            font-weight: 500;
+        }
+
+        .card-date {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        .card-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card-content li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .card-content li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-teal);
+            font-weight: bold;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .education-item {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .education-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-teal), #3a9aa3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        .education-details h3 {
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .education-details p {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-note {
+            font-size: 0.95rem;
+            color: var(--accent-teal);
+            font-style: italic;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            border-color: var(--accent-teal);
+            box-shadow: 0 10px 30px rgba(26, 35, 50, 0.05);
+        }
+
+        .skill-category h3 {
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-icon {
+            width: 30px;
+            height: 30px;
+            background: var(--accent-teal);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: var(--light-bg);
+            color: var(--text-secondary);
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent-teal);
+            color: white;
+            border-color: var(--accent-teal);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 5rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Scroll Animation */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .card-header {
+                flex-direction: column;
+            }
+            
+            .education-item {
+                flex-direction: column;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Shang Shian Jan<br>(William)</h1>
+            <p class="hero-subtitle">Digital Marketing Specialist | Content Strategist | SEO Enthusiast<br>Passionate about leveraging data-driven insights to create impactful digital experiences</p>
+            <div class="contact-links">
+                <a href="mailto:janshang6@gmail.com" class="contact-link">
+                    <span>📧</span> Email Me
+                </a>
+                <a href="tel:+886902320228" class="contact-link">
+                    <span>📱</span> (+886) 902-320-228
+                </a>
+                <a href="https://www.linkedin.com/in/william-jan-ssj" target="_blank" rel="noopener noreferrer" class="contact-link">
+                    <span>💼</span> LinkedIn
+                </a>
+                <a href="#" class="contact-link">
+                    <span>📍</span> Taipei, Taiwan
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Education Section -->
+        <section class="section scroll-animate">
+            <h2 class="section-title">Education</h2>
+            <div class="card">
+                <div class="education-grid">
+                    <div class="education-item">
+                        <div class="education-icon">🎓</div>
+                        <div class="education-details">
+                            <h3>Bachelor of Economics</h3>
+                            <p><strong>Soochow University</strong> | Taipei City, Taiwan</p>
+                            <p>Sept 2021 – Jul 2026 (Expected) | GPA: 3.9/4.0</p>
+                        </div>
+                    </div>
+                    <div class="education-item">
+                        <div class="education-icon">🌍</div>
+                        <div class="education-details">
+                            <h3>Exchange Program</h3>
+                            <p><strong>Münster University</strong> | Münster, Germany</p>
+                            <p>Oct 2024 – Feb 2025</p>
+                            <p class="education-note">Studied German as a third language (A1 level)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience Section -->
+        <section class="section scroll-animate">
+            <h2 class="section-title">Professional Experience</h2>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Global Social Media & Digital Content Strategy Intern</h3>
+                        <p class="card-company">ASUS (ASUSTeK Computer Inc.)</p>
+                    </div>
+                    <span class="card-date">Jul 2025 – Present</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Collaborated with colleagues to build HQ AI SEO strategic playbook, defining annual roadmaps and setting annual targets</li>
+                        <li>Performed SEO optimizations (FAQ/H-tags) to increase organic discoverability and AI-SEO</li>
+                        <li>Implemented ad campaigns (Google & X), generating 700K+ impressions and 300K+ engagements to scale brand awareness</li>
+                        <li>Analyzed GlideX website performance with GA4, Semrush, and Looker Studio, delivering digital marketing insight for the renaming project</li>
+                        <li>Analyzed with Emplifi to identify high-performing social content patterns and actionable insights</li>
+                        <li>Executed data-driven analysis of competitor brands' KOL content, extracting different strategies from competitor brands</li>
+                        <li>Analyzed KOL partnership suitability through data-driven analysis of audience distribution and content performance</li>
+                        <li>Collaborated with colleagues for the Year-End KOL Gift project, helping with gift selection and operation</li>
+                        <li>Assisted in executing of production of video content, integrating products with trending topics to maximize organic engagement and visibility</li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </section>
+
+        <!-- Other Experience Section -->
+        <section class="section scroll-animate">
+            <h2 class="section-title">Other Experience</h2>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Student Ambassador</h3>
+                        <p class="card-company">WeMo Scooter</p>
+                    </div>
+                    <span class="card-date">Apr 2024 – Jun 2024</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Designed captions, videos and edited short Reels videos to promote WeMo</li>
+                        <li>Participated in campus sponsorship events, utilizing giveaways to attract young users to use WeMo scooters</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Student Ambassador</h3>
+                        <p class="card-company">Tasteme / Plantārium</p>
+                    </div>
+                    <span class="card-date">Oct 2023 – Mar 2024</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Designed captions, videos, and short-form Reels content to promote Tasteme / Plantārium, aligning creative messaging with the brand's circular economy and sustainability mission</li>
+                        <li>Planned campus sponsorship events featuring sustainable product giveaways to engage young audiences and educate them on circular consumption practices</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">New Taipei City Social Designer 2024</h3>
+                        <p class="card-company">New Taipei City Government</p>
+                    </div>
+                    <span class="card-date">Mar 2024 – Aug 2024</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Tackled an environmental issue addressed by RE-THINK: "Designing a school-based recycling initiative focused on improving waste sorting and ensuring correct disposal"</li>
+                        <li>Advanced to the finals after standing out in the preliminary round</li>
+                        <li>Participated in design of recycling bin with "memes" & "K-pop", aimed to convey key recycling message to college students</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Speaker Outreach Member</h3>
+                        <p class="card-company">TEDxDongWuU (Soochow University)</p>
+                    </div>
+                    <span class="card-date">Jul 2025 – Oct 2025</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Authored invitation letters and managed outreach, securing speakers</li>
+                        <li>Crafted persuasive speaking outline for speakers, translating complex messages into concise, audience-ready content that enhanced event engagement</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section scroll-animate">
+            <h2 class="section-title">Core Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><span class="skill-icon">📊</span> Digital Marketing</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">GA4</span>
+                        <span class="skill-tag">Looker Studio</span>
+                        <span class="skill-tag">SEMrush</span>
+                        <span class="skill-tag">HypeAuditor</span>
+                        <span class="skill-tag">VidIQ</span>
+                        <span class="skill-tag">Emplifi</span>
+                        <span class="skill-tag">SEO</span>
+                        <span class="skill-tag">AI SEO</span>
+                        <span class="skill-tag">Content Creation</span>
+                        <span class="skill-tag">Copywriting</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><span class="skill-icon">💰</span> Media Buying</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Google Ads</span>
+                        <span class="skill-tag">X Ads</span>
+                        <span class="skill-tag">Meta Ads</span>
+                        <span class="skill-tag">LinkedIn Ads</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><span class="skill-icon">🎖️</span> Certifications</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Google Analytics</span>
+                        <span class="skill-tag">Google Search Ads</span>
+                        <span class="skill-tag">LVMH - Creation & Branding</span>
+                        <span class="skill-tag">HubSpot - SEO</span>
+                        <span class="skill-tag">Semrush - Off-page SEO</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><span class="skill-icon">🌐</span> Languages</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">English - IELTS 7.5</span>
+                        <span class="skill-tag">Chinese - Native</span>
+                        <span class="skill-tag">German - A1</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Volunteer Section -->
+        <section class="section scroll-animate">
+            <h2 class="section-title">Volunteer & Community Service</h2>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">English Teacher</h3>
+                        <p class="card-company">iPower Community Service</p>
+                    </div>
+                    <span class="card-date">Online</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Tutored students in rural areas in English, providing personalized lessons to improve language proficiency</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Beach Cleanup Volunteer</h3>
+                        <p class="card-company">RE-Think</p>
+                    </div>
+                    <span class="card-date">Taiwan</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Volunteered in beach cleanup initiatives, reducing local environmental waste and promoting sustainability awareness</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2026 Shang Shian Jan (William). Built with passion for digital marketing and innovation.</p>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-animate').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior
